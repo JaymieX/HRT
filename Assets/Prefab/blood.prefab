@@ -134,6 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b9a452ec14a2304db4f8426908ebfb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  despawnPartical: blood-bubble
 --- !u!95 &3514739321763979125
 Animator:
   serializedVersion: 3
