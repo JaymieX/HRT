@@ -12,4 +12,12 @@ public class Agent : MonoBehaviour
     {
         OnCollisionEnter2DEvent?.Invoke(gameObject, col);
     }
+
+    private void Update()
+    {
+        if (transform.position.y <= -10f)
+        {
+            ObjectPool.Instance.Kill("blood", gameObject);
+        }
+    }
 }

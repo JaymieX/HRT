@@ -9,7 +9,7 @@ public struct SpawnObjectList
 {
     public string name;
     public float minX, maxX, minY, maxY;
-    public float interval;
+    public float intervalMin, intervalMax;
 }
 
 public class Spawner : MonoBehaviour
@@ -30,7 +30,7 @@ public class Spawner : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(o.interval);
+            yield return new WaitForSeconds(Random.Range(o.intervalMin, o.intervalMax));
 
             ObjectPool.Instance.SpawnAt
                 (o.name, new Vector3(Random.Range(o.minX, o.maxX), Random.Range(o.minY, o.maxY), 0f));

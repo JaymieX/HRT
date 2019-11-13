@@ -21,6 +21,22 @@ public class ObjectPool : MonoBehaviour
     private static ObjectPool _instance;
     public static ObjectPool Instance => _instance;
 
+    private void AddObject(string oName)
+    {
+        ObjectLists o = new ObjectLists();
+        foreach (var ol in objects)
+        {
+            if (ol.name == oName)
+            {
+                o = ol;
+            }
+        }
+
+        GameObject spawned = Instantiate(o.prototype, transform.position, Quaternion.identity);
+        spawned.SetActive(false);
+
+        _pool[o.name].Enqueue(spawned);
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -53,13 +69,15 @@ public class ObjectPool : MonoBehaviour
     {
         if (_pool.ContainsKey(oName))
         {
-            if (_pool[oName].Count > 0)
+            if (_pool[oName].Count == 0)
             {
-                GameObject obj = _pool[oName].Dequeue();
-                obj.transform.position = pos;
-
-                obj.SetActive(true);
+                AddObject(oName);
             }
+
+            GameObject obj = _pool[oName].Dequeue();
+            obj.transform.position = pos;
+
+            obj.SetActive(true);
         }
     }
 
