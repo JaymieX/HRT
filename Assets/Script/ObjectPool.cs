@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 
 [Serializable]
@@ -18,8 +19,7 @@ public class ObjectPool : MonoBehaviour
 
     private Dictionary<string, Queue<GameObject>> _pool;
 
-    private static ObjectPool _instance;
-    public static ObjectPool Instance => _instance;
+    public static ObjectPool Instance { get; private set; }
 
     private void AddObject(string oName)
     {
@@ -41,13 +41,13 @@ public class ObjectPool : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (_instance != null && _instance != this)
+        if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
         }
         else
         {
-            _instance = this;
+            Instance = this;
         }
 
         _pool = new Dictionary<string, Queue<GameObject>>();
@@ -75,9 +75,20 @@ public class ObjectPool : MonoBehaviour
             }
 
             GameObject obj = _pool[oName].Dequeue();
-            obj.transform.position = pos;
 
-            obj.SetActive(true);
+            if (obj != null)
+            {
+                obj.transform.position = pos;
+
+                obj.SetActive(true);
+            }
+            else
+            {
+                StringBuilder error = new StringBuilder();
+                error.AppendLine("Error while spawning.");
+                error.AppendLine("Name: " + oName);
+                Debug.Log(error.ToString());
+            }
         }
     }
 

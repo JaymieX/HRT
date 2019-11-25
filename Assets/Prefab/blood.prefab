@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 3514739321763979129}
   - component: {fileID: 3514739321763979127}
   - component: {fileID: 3514739321763979124}
-  - component: {fileID: 3514739321763979122}
   - component: {fileID: 3514739321763979125}
+  - component: {fileID: 3514739321763979122}
   m_Layer: 8
   m_Name: blood
   m_TagString: Blood
@@ -122,19 +122,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &3514739321763979122
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3514739321763979128}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b9a452ec14a2304db4f8426908ebfb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  despawnPartical: blood-bubble
 --- !u!95 &3514739321763979125
 Animator:
   serializedVersion: 3
@@ -154,3 +141,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3514739321763979122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3514739321763979128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b9a452ec14a2304db4f8426908ebfb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  despawnPartical: blood-bubble

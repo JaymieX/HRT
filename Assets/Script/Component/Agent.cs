@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Agent : MonoBehaviour
@@ -24,7 +26,10 @@ public class Agent : MonoBehaviour
         {
             ObjectPool.Instance.SpawnAt(despawnPartical, transform.position);
         }
+    }
 
+    private void OnEnable()
+    {
         _lock = false;
     }
 
@@ -32,6 +37,7 @@ public class Agent : MonoBehaviour
     {
         if (transform.position.y <= -10f)
         {
+            _lock = true;
             ObjectPool.Instance.Kill("blood", gameObject);
         }
     }
