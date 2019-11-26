@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 public class Agent : MonoBehaviour
 {
+    public string poolName;
+
     [SerializeField]
     private string despawnPartical;
 
@@ -22,7 +23,9 @@ public class Agent : MonoBehaviour
 
     void OnDisable()
     {
-        if (!_lock)
+        if (_lock) return;
+
+        if (despawnPartical != string.Empty)
         {
             ObjectPool.Instance.SpawnAt(despawnPartical, transform.position);
         }
@@ -31,14 +34,5 @@ public class Agent : MonoBehaviour
     private void OnEnable()
     {
         _lock = false;
-    }
-
-    private void Update()
-    {
-        if (transform.position.y <= -10f)
-        {
-            _lock = true;
-            ObjectPool.Instance.Kill("blood", gameObject);
-        }
     }
 }
