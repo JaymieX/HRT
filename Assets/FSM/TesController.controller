@@ -96,6 +96,7 @@ AnimatorState:
   m_StateMachineBehaviours:
   - {fileID: 1737337296706507696}
   - {fileID: -7118031518819554293}
+  - {fileID: 9074246926167784832}
   - {fileID: -413223236662131194}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
@@ -111,3 +112,17 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!114 &9074246926167784832
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b42c3c992b687b049b4c706f7b09054d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitTime: 3.5
+  projectileName: bolt

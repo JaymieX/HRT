@@ -65,8 +65,10 @@ public class ObjectPool : MonoBehaviour
         }
     }
 
-    public void SpawnAt(string oName, Vector3 pos)
+    public GameObject SpawnAt(string oName, Vector3 pos)
     {
+        GameObject result = null;
+
         if (_pool.ContainsKey(oName))
         {
             if (_pool[oName].Count == 0)
@@ -81,6 +83,8 @@ public class ObjectPool : MonoBehaviour
                 obj.transform.position = pos;
 
                 obj.SetActive(true);
+
+                result = obj;
             }
             else
             {
@@ -90,6 +94,8 @@ public class ObjectPool : MonoBehaviour
                 Debug.Log(error.ToString());
             }
         }
+
+        return result;
     }
 
     public void Kill(string oName, GameObject o)

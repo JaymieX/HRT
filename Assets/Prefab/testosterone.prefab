@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8983956050850515668}
   - component: {fileID: 8983956050850515667}
   - component: {fileID: 8983956050850515670}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: testosterone
   m_TagString: Tes
   m_Icon: {fileID: 0}
@@ -154,4 +154,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poolName: tes
-  despawnPartical: 
+  despawnPartical: exp
